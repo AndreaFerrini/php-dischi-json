@@ -9,15 +9,17 @@
 </head>
 <body>
     <div id="app" class="vh-100">
-        <h1> Spotify</h1>
+        <h1 class="text-center mb-5"> Spotify</h1>
 
         <div class="container">
             <div class="row row-gap-2">
-                <div class="col-4" v-for="(elem, index) in data" :key="index">
-                    <img :src="elem.poster" alt="" class="img-fluid">
-                    <h3>{{ elem.title }}</h3>
-                    <h5>{{ elem.author }} | {{ elem.year }}</h5>
-                    <h5>{{ elem.genere }}</h5>
+                <div class="col-4 text-center" v-for="(elem, index) in data" :key="index">
+                    <div class="card" @click="mostraSingolaCard( index )">
+                        <img :src="elem.poster" alt="" class="img-fluid w-100">
+                        <h3>{{ elem.title }}</h3>
+                        <h5>{{ elem.author }} | {{ elem.year }}</h5>
+                        <h5>{{ elem.genere }}</h5>
+                    </div>
                 </div>
             </div>
 

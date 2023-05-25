@@ -4,16 +4,18 @@
     $string = file_get_contents( "dischi.json");
     $disc_list = json_decode( $string, true );
 
-    
-
-    $results = $disc_list;
+    $results = [];
 
     //parte per chiedere al server un solo disco
-    // if() {
+    if( isset( $_GET["discIndex"] ) && $_GET["discIndex"] !== "" ) {
+        $disc_index = $_GET["discIndex"];
 
-    // } else {
+        $singoloDisco = $disc_list["$disc_index"];
 
-    // }
+        $results = $singoloDisco;
+    } else {
+        $results = $disc_list;
+    }
 
     header( "Content-type: application/json" );
     echo json_encode($results);

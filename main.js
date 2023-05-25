@@ -4,7 +4,8 @@ const { createApp } = Vue
         data() {
             return {
                 apiUrl: "server.php",
-                data: ""
+                data: "",
+                discDetails: ""
             }
         },
         methods: {
@@ -12,6 +13,17 @@ const { createApp } = Vue
                 axios.get( this.apiUrl )
                     .then( (res) =>{
                         this.data = res.data
+                    } )
+            },
+            mostraSingolaCard(i){
+
+                const datoIndice = {
+                    discIndex: i
+                }
+
+                axios.get( this.apiUrl, datoIndice, {headers: {"Content-Type": "multipart/form-data"}} )
+                    .then( (res)=> {
+                        this.discDetails = res.data;
                     } )
             }
         },
