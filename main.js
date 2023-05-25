@@ -5,7 +5,7 @@ const { createApp } = Vue
             return {
                 apiUrl: "server.php",
                 data: "",
-                discDetails: ""
+                discDetails: "",
             }
         },
         methods: {
@@ -20,6 +20,7 @@ const { createApp } = Vue
                 const datoIndice = {
                     discIndex: i
                 }
+
 
                 axios.get( this.apiUrl, datoIndice, {headers: {"Content-Type": "multipart/form-data"}} )
                     .then( (res)=> {

@@ -9,22 +9,38 @@
 </head>
 <body>
     <div id="app" class="vh-100">
+
         <h1 class="text-center mb-5"> Spotify</h1>
 
         <div class="container">
             <div class="row row-gap-2">
                 <div class="col-4 text-center" v-for="(elem, index) in data" :key="index">
-                    <div class="card" @click="mostraSingolaCard( index )">
-                        <img :src="elem.poster" alt="" class="img-fluid w-100">
-                        <h3>{{ elem.title }}</h3>
-                        <h5>{{ elem.author }} | {{ elem.year }}</h5>
-                        <h5>{{ elem.genere }}</h5>
-                    </div>
+                    <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <div class="card" @click="mostraSingolaCard(index)">
+                            <img :src="elem.poster" alt="" class="img-fluid w-100">
+                            <h3>{{ elem.title }}</h3>
+                            <h5>{{ elem.author }} | {{ elem.year }}</h5>
+                            <h5>{{ elem.genere }}</h5>
+                        </div>
+                    </a>
                 </div>
             </div>
 
         </div>
 
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="card">
+                        <img :src="discDetails.poster" alt="" class="img-fluid w-100">
+                        <h3>{{ discDetails.title }}</h3>
+                        <h5>{{ discDetails.author }} | {{ discDetails.year }}</h5>
+                        <h5>{{ discDetails.genere }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 

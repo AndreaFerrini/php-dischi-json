@@ -10,7 +10,7 @@
     if( isset( $_GET["discIndex"] ) && $_GET["discIndex"] !== "" ) {
         $disc_index = $_GET["discIndex"];
 
-        $singoloDisco = $disc_list["$disc_index"];
+        $singoloDisco = $disc_list[$disc_index];
 
         $results = $singoloDisco;
     } else {
